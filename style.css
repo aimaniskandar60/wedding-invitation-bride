@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+.cursive-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+}
+
 header {
   background-color: #dde5db;
   padding: 50px 20px;
