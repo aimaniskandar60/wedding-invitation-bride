@@ -31,48 +31,50 @@
 			<p>Please fill in your details below.</p>
 			<form
 				class="rsvp-form"
-				action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"
+				action="https://docs.google.com/forms/d/e/1FAIpQLSeR3HBybhHd82gmI8Add4NJ5ksYuSUnwPH_Y5ooAVdN47G1vQ/formResponse"
 				method="POST"
 				target="hidden_iframe"
 			>
 				<label for="guest-name">Name</label>
 				<input
 					id="guest-name"
-					name="entry.1111111111"
+					name="entry.1498135098"
 					type="text"
 					required
 					placeholder="Your full name"
-				>
-
-				<label for="pax">Number of Pax</label>
-				<input
-					id="pax"
-					name="entry.2222222222"
-					type="number"
-					min="1"
-					max="10"
-					required
-					placeholder="e.g. 2"
 				>
 
 				<fieldset>
 					<legend>Will you attend?</legend>
 					<div class="radio-row">
 					<label>
-						<input type="radio" name="entry.3333333333" value="Yes" required>
+						<input type="radio" name="entry.877086558" value="Yes" required>
 						Yes
 					</label>
 					<label>
-						<input type="radio" name="entry.3333333333" value="No" required>
+						<input type="radio" name="entry.877086558" value="No" required>
 						No
 					</label>
 					</div>
 				</fieldset>
 
-				<label for="notes">Notes</label>
+				<div id="pax-group" hidden>
+					<label for="pax">Number of Pax</label>
+					<input
+						id="pax"
+						name="entry.2606285"
+						type="number"
+						min="1"
+						max="10"
+						disabled
+						placeholder="e.g. 2"
+					>
+				</div>
+
+				<label for="notes">Leave your best wishes</label>
 				<textarea
 					id="notes"
-					name="entry.4444444444"
+					name="entry.682894428"
 					rows="4"
 					required
 					placeholder="Any message for us"
@@ -83,13 +85,32 @@
 
 			<iframe name="hidden_iframe" title="Hidden RSVP Submit Frame" class="hidden-frame"></iframe>
 
-		<!-- <p class="form-help">
-			Replace YOUR_FORM_ID and each entry.xxxxx value with your Google Form field IDs.
-		</p> -->
-		<!-- <p class="form-help">
-			Prefer direct form link? <a href="https://forms.gle/your-form-link">Open RSVP form</a>
-		</p> -->
 		</section>
+
+		<script>
+			const attendanceInputs = document.querySelectorAll('input[name="entry.877086558"]');
+			const paxGroup = document.getElementById('pax-group');
+			const paxInput = document.getElementById('pax');
+
+			function togglePaxField() {
+				const selected = document.querySelector('input[name="entry.877086558"]:checked');
+				const isAttending = selected && selected.value === 'Yes';
+
+				paxGroup.hidden = !isAttending;
+				paxInput.disabled = !isAttending;
+				paxInput.required = isAttending;
+
+				if (!isAttending) {
+					paxInput.value = '';
+				}
+			}
+
+			attendanceInputs.forEach((input) => {
+				input.addEventListener('change', togglePaxField);
+			});
+
+			togglePaxField();
+		</script>
 
 	</body>
 </html>
