@@ -25,3 +25,101 @@ a {
   text-decoration: none;
   font-weight: bold;
 }
+
+.rsvp-form {
+  max-width: 480px;
+  margin: 24px auto 0;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid #d8ded6;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.rsvp-form label,
+.rsvp-form legend {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #3f4f41;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="number"],
+.rsvp-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #c6d1c5;
+  border-radius: 8px;
+  background-color: #fcfdfb;
+  color: #4a4a4a;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+}
+
+.rsvp-form input:focus,
+.rsvp-form textarea:focus {
+  outline: none;
+  border-color: #6b8e75;
+  box-shadow: 0 0 0 3px rgba(107, 142, 117, 0.18);
+}
+
+.rsvp-form fieldset {
+  border: 1px solid #d8ded6;
+  border-radius: 8px;
+  margin: 0 0 16px;
+  padding: 12px;
+}
+
+.radio-row {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.rsvp-form button {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #6b8e75;
+  color: #ffffff;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rsvp-form button:hover {
+  background-color: #587560;
+}
+
+.hidden-frame {
+  display: none;
+}
+
+.form-help {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #5c5c5c;
+}
+
+@media (max-width: 640px) {
+  .rsvp-form {
+    padding: 18px;
+  }
+
+  .radio-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
