@@ -92,9 +92,12 @@
 		</section>
 
 		<script>
+			const rsvpForm = document.querySelector('.rsvp-form');
+			const hiddenFrame = document.querySelector('iframe[name="hidden_iframe"]');
 			const attendanceInputs = document.querySelectorAll('input[name="entry.877086558"]');
 			const paxGroup = document.getElementById('pax-group');
 			const paxInput = document.getElementById('pax');
+			let hasSubmitted = false;
 
 			function togglePaxField() {
 				const selected = document.querySelector('input[name="entry.877086558"]:checked');
@@ -110,6 +113,18 @@
 
 			attendanceInputs.forEach((input) => {
 				input.addEventListener('change', togglePaxField);
+			});
+
+			rsvpForm.addEventListener('submit', () => {
+				hasSubmitted = true;
+			});
+
+			hiddenFrame.addEventListener('load', () => {
+				if (!hasSubmitted) {
+					return;
+				}
+
+				window.location.href = 'thank-you.html';
 			});
 
 			togglePaxField();

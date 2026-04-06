@@ -118,6 +118,41 @@ a {
   color: #5c5c5c;
 }
 
+.thank-you-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.thank-you-card {
+  width: 100%;
+  max-width: 560px;
+  background-color: #ffffff;
+  border: 1px solid #d8ded6;
+  border-radius: 14px;
+  padding: 36px 28px;
+  box-sizing: border-box;
+}
+
+.thank-you-card p {
+  margin: 10px 0 24px;
+}
+
+.thank-you-link {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #6b8e75;
+  background-color: #eef3ec;
+}
+
+.thank-you-link:hover {
+  background-color: #e4ece1;
+}
+
 @media (max-width: 640px) {
   .rsvp-form {
     padding: 18px;
