@@ -14,11 +14,11 @@
 		
 		
 		<header class="hero">
-			<img src="images/hero_banner.png" class="hero-overlay">
-			<p class="hero-kicker">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
-			<p class="hero-kicker">Walimatul Urus</p>
-			<h1 class="cursive-text hero-names">Azzalea & Aiman</h1>
-			<p class="hero-date">Day &middot Date</p>
+			<img src="images/hero_banner.png" class="hero-overlay fade-load delay-1">
+			<p class="hero-kicker fade-load delay-1">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+			<p class="hero-kicker fade-load delay-2">Walimatul Urus</p>
+			<h1 class="cursive-text hero-names fade-load delay-3">Azzalea & Aiman</h1>
+			<p class="hero-date fade-load delay-4">Day &middot Date</p>
 		</header>
 
 		<section class="content-section">
@@ -137,6 +137,8 @@
 		</section>
 
 		<script>
+			document.body.classList.add('js-animate');
+
 			const rsvpForm = document.querySelector('.rsvp-form');
 			const hiddenFrame = document.querySelector('iframe[name="hidden_iframe"]');
 			const attendanceInputs = document.querySelectorAll('input[name="entry.877086558"]');
@@ -144,6 +146,7 @@
 			const paxInput = document.getElementById('pax');
 			const phoneNumberGroup = document.getElementById('phone-number-group');
 			const phoneNumberInput = document.getElementById('phone-number');
+			const revealSections = document.querySelectorAll('.content-section');
 			let hasSubmitted = false;
 
 			function togglePaxAndNumberField() {
@@ -183,9 +186,30 @@
 			});
 
 			togglePaxAndNumberField();
-			
-			var audio = document.getElementById("background-music");
-			audio.volume = 0.5;
+
+			const sectionObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{
+					threshold: 0.18,
+					rootMargin: '0px 0px -10% 0px'
+				}
+			);
+
+			revealSections.forEach((section) => {
+				sectionObserver.observe(section);
+			});
+
+			var audio = document.getElementById('background-music');
+			if (audio) {
+				audio.volume = 0.5;
+			}
 
 		</script>
 

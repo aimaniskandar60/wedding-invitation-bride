@@ -112,12 +112,55 @@ section {
   background-color: #345f78;
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-load {
+  opacity: 0;
+  animation: fadeUp 700ms ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 100ms;
+}
+
+.delay-2 {
+  animation-delay: 220ms;
+}
+
+.delay-3 {
+  animation-delay: 340ms;
+}
+
+.delay-4 {
+  animation-delay: 460ms;
+}
+
 .content-section {
   margin: 26px auto;
   border: none;
   padding: 40px 20px;
   border-radius: 18px;
   font-family: "Lora", serif;
+}
+
+body.js-animate .content-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+body.js-animate .content-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .content-section-final {
@@ -263,6 +306,21 @@ a {
 
 .thank-you-link:hover {
   background-color: #e2efec;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-load {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  body.js-animate .content-section,
+  body.js-animate .content-section.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 640px) {
