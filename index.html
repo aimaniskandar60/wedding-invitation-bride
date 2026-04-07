@@ -6,13 +6,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Azzalea & Aiman's Wedding</title>
 		<link rel="stylesheet" href="style.css?v=20260407c">
+		<audio id="background-music" src="audio/background_music.mp3" autoplay loop></audio>
 	</head>
 	
 	<body>
-
 		
-
+		
+		
 		<header class="hero">
+			<img src="images/hero_banner.png" class="hero-overlay">
 			<p class="hero-kicker">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
 			<p class="hero-kicker">Walimatul Urus</p>
 			<h1 class="cursive-text hero-names">Azzalea & Aiman</h1>
@@ -21,14 +23,14 @@
 
 		<section class="content-section">
 			<h1>بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</h1>
-			<h2>AZZALEA_DAD_NAME</h2>
+			<h2>GAZALI BIN ABDUL RAHMAN</h2>
 			<h2 class="cursive-text">&</h2>
-			<h2>AZZALEA_MOM_NAME</h2>
+			<h2>NOORSHIDA BINTI HASHIM</h2>
 			<p>
 				with the blessings of Allah SWT
 			</p>
 			<p>
-				joyfully invite you and your family to celebrate the wedding of our daughter
+				we joyfully invite you and your family to celebrate the wedding of our daughter
 			</p>
 			<h2>NOORAZZALEA BINTI GAZALI</h2>
 			<h2 class="cursive-text">&</h2>
@@ -38,11 +40,13 @@
 		<section class="content-section">
 			<h2>Venue</h2>
 			<p>TBD</p>
+			<!-- TODO: Add Google Maps and Waze shortcut links -->
 		</section>
 
-		<section class="content-section content-section-final">
+		<section class="content-section">
 			<h2>Time</h2>
 			<p>TBD</p>
+			<!-- Consider doing creating a calendar event for the guest -->
 		</section>
 
 		<section class="content-section">
@@ -101,6 +105,7 @@
 						id="phone-number"
 						name="entry.282845420"
 						type="tel"
+						placeholder="+60123456789"
 						pattern="^(?:01[0-9]\d{7,8}|\+601[0-9]\d{7,8}|601[0-9]\d{7,8})$"
 					>
 				</div>
@@ -178,7 +183,13 @@
 			});
 
 			togglePaxAndNumberField();
+			
+			var audio = document.getElementById("background-music");
+			audio.volume = 0.5;
+
 		</script>
 
 	</body>
+
+	<!-- TODO: Add footer? -->
 </html>
