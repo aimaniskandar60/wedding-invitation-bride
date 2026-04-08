@@ -88,7 +88,7 @@
     <div class="border-bottom"></div>
 
 	<section class="content-section">
-      <h2>Guest Wishes</h2>
+      <h2>Wishes</h2>
       <div id="wishes-container" class="wishes-scroll">
         <p class="loading-text">Loading wishes...</p>
       </div>
@@ -249,26 +249,6 @@
 
           wishesContainer.innerHTML = wishsHTML;
 
-          // Auto-scroll setup
-          let currentIndex = 0;
-          const items = wishesContainer.querySelectorAll(".wish-item");
-
-          if (items.length > 1) {
-            setInterval(() => {
-              items[currentIndex].classList.remove("active");
-              currentIndex = (currentIndex + 1) % items.length;
-              items[currentIndex].classList.add("active");
-              items[currentIndex].scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-              });
-            }, 3000); // Change wish every 5 seconds
-
-            // Set first item as active
-            if (items.length > 0) {
-              items[0].classList.add("active");
-            }
-          }
         } catch (error) {
           console.error("Error loading wishes:", error);
           wishesContainer.innerHTML =
