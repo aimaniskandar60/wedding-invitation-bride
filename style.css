@@ -177,7 +177,17 @@ body.js-animate .content-section.is-visible {
 
 .content-section p {
   font-size: 1.1rem;
-  color: var(--text)
+  color: var(--text);
+}
+
+.content-section a i {
+  color: var(--tertiary);
+  font-size: 28px;
+  transition: transform 0.2s ease;
+}
+
+.content-section a i:hover {
+  transform: scale(1.2);
 }
 
 .border-bottom {
@@ -418,3 +428,4 @@ a {
     margin: 12px auto;
   }
 }
+
